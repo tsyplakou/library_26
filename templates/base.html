@@ -1,0 +1,16 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Title{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+	<div>
+		<a href="{% url 'logout' %}">Logout</a>
+	</div>
+	{% block content %}{% endblock %}
+</body>
+</html>
