@@ -4,7 +4,7 @@ from library.test_data import books_data
 from .models import Book, Borrowing
 
 
-class BookFactory(factory.DjangoModelFactory):
+class BookFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Book
 
@@ -20,7 +20,7 @@ class BookFactory(factory.DjangoModelFactory):
                 self.borrowers.add(borrower)
 
 
-class BorrowingFactory(factory.DjangoModelFactory):
+class BorrowingFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Borrowing
 
