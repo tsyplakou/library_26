@@ -18,7 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from user.views import login_view, logout_view, register_view
-from genre.views import genres as genres_view, genre as genre_view
+from genre.views import (
+    genres as genres_view,
+    genre as genre_view,
+    add_genre, edit_genre
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +32,6 @@ urlpatterns = [
     path('registration/', register_view, name='registration'),
     path('genres/', genres_view, name='genres'),
     path('genre/<int:genre_id>/', genre_view, name='genre'),
+    path('add_genre/', add_genre, name='add_genre'),
+    path('edit_genre/<int:genre_id>/', edit_genre, name='edit_genre'),
 ]
