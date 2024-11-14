@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exquisite Bookshelf with Centered Author Photos</title>
+    {% block title %}Exquisite Bookshelf with Centered Author Photos{% endblock %}
     <style>
         /* Общий фон с мягким градиентом */
         body {
@@ -165,7 +163,8 @@
 
     </style>
 </head>
-<body>
+
+{block main_content}
     <div class="bookshelf">
         {% for shelf in books|batch(7) %}
             <div class="shelf">
@@ -183,5 +182,4 @@
             </div>
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}
