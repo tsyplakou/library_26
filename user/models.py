@@ -14,3 +14,15 @@ class User(AbstractUser):
         choices=Role.choices,
         default=Role.READER,
     )
+
+    @property
+    def is_reader(self):
+        return self.role == self.Role.READER
+
+    @property
+    def is_librarian(self):
+        return self.role == self.Role.LIBRARIAN
+
+    @property
+    def is_admin(self):
+        return self.role == self.Role.ADMIN

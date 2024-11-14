@@ -5,13 +5,13 @@ class Writing(models.Model):
     title = models.CharField(max_length=100)
 
     author = models.ForeignKey(
-        'authors.Author',
+        'author.Author',
         on_delete=models.PROTECT,
         related_name='books',
         help_text='Author of the book.',
     )
     genre = models.ForeignKey(
-        'genres.Genre',
+        'genre.Genre',
         on_delete=models.PROTECT,
         related_name='books',
         help_text='Genre of the book.',

@@ -6,6 +6,12 @@ from django.db import models
 class Book(models.Model):
     title = models.CharField(max_length=80)
 
+    writing = models.ForeignKey(
+        'writing.Writing',
+        on_delete=models.PROTECT,
+        related_name='books',
+        help_text='Book writing.',
+    )
     translators = models.ManyToManyField(
         'author.Author',
         related_name='translated_books',
