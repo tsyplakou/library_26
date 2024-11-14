@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Add Genre{% endblock %}
+
+{% block content %}
+  {% if user.is_librarian %}
+    <form method="POST" action="{% url 'add_genre' %}">
+      {% csrf_token %}
+      <p><input type="text" name="name" placeholder="Genre name" /></p>
+      <p><textarea name="description" placeholder="Genre description" rows="4"></textarea></p>
+      <p><input type="submit" value="Add Genre" /></p>
+    </form>
+  {% else %}
+    <p>You do not have permission to add genres.</p>
+  {% endif %}
+{% endblock %}
