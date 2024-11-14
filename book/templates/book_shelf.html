@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exquisite Bookshelf with Centered Author Photos</title>
+    <style>
+        /* Общий фон с мягким градиентом */
+        body {
+            font-family: 'Georgia', serif;
+            background: radial-gradient(circle, #fdfbfb, #ebedee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Конструкция книжной полки */
+        .bookshelf {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 40px;
+            background: #e9d5b8;
+            border-radius: 30px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), inset 0 -5px 8px rgba(0, 0, 0, 0.2);
+            border: 6px solid #b79165;
+            position: relative;
+        }
+
+        /* Деревянные полки */
+        .shelf {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: linear-gradient(145deg, #7e5a3b, #603d25);
+            padding: 15px;
+            width: 100%;
+            max-width: 950px;
+            height: 250px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 -8px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Верхняя декоративная планка */
+        .shelf:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 14px;
+            background: #5a3d26;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            box-shadow: inset 0 -4px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Стиль для книг */
+        .book {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            padding: 15px 10px;
+            border-radius: 10px;
+            width: 80px;
+            height: 180px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: bold;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), inset 0 -3px 5px rgba(255, 255, 255, 0.2);
+            margin: 0 10px;
+            background: linear-gradient(135deg, #3c4f76, #2c3e5d);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s, box-shadow 0.5s, opacity 0.5s;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        /* Контейнер для текста */
+        .book .text-container {
+            margin-bottom: 10px;
+        }
+
+        /* Контейнер для фото автора */
+        .book .author-photo {
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto; /* Расположить фото внизу */
+        }
+
+        .book .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Градиенты для книг */
+        .book:nth-child(1) { background: linear-gradient(135deg, #6d3b4c, #4d2a39); }
+        .book:nth-child(2) { background: linear-gradient(135deg, #4a8b5e, #357648); }
+        .book:nth-child(3) { background: linear-gradient(135deg, #8b5e3c, #5c3a1a); }
+        .book:nth-child(4) { background: linear-gradient(135deg, #607d8b, #4c636b); }
+        .book:nth-child(5) { background: linear-gradient(135deg, #8b3c6a, #6b2f54); }
+        .book:nth-child(6) { background: linear-gradient(135deg, #3b5998, #2e456b); }
+        .book:nth-child(7) { background: linear-gradient(135deg, #a83c3c, #842e2e); }
+
+        /* Анимация книги при наведении */
+        .book:hover {
+            transform: rotateY(-15deg) scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), inset 0 -6px 8px rgba(255, 255, 255, 0.3);
+            z-index: 2;
+            opacity: 1;
+        }
+
+        /* Отражение под книгой */
+        .book::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            filter: blur(6px);
+            opacity: 0.7;
+            transition: opacity 0.5s;
+        }
+
+        /* Световое окружение вокруг полки */
+        .bookshelf:before, .bookshelf:after {
+            content: '';
+            position: absolute;
+            background: radial-gradient(circle, rgba(0,0,0,0.2), transparent);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .bookshelf:before {
+            top: -60px;
+            left: -60px;
+        }
+
+        .bookshelf:after {
+            bottom: -60px;
+            right: -60px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bookshelf">
+        {% for shelf in books|batch(7) %}
+            <div class="shelf">
+                {% for book in shelf %}
+                    <div class="book">
+                        <div class="text-container">
+                            <strong>{{ book.title }}</strong><br>
+                            <em>{{ book.author }}</em>
+                        </div>
+                        <div class="author-photo">
+                            <img src="{{ book.author_photo_url }}" alt="Author Photo">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
