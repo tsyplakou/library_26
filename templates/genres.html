@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Genres{% endblock %}
+
+{% block content %}
+  <ul>
+    {% for genre in genres %}
+      <li>{{ genre.name }}: {{ genre.description }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

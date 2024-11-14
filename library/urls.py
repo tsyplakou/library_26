@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from user.views import login_view, logout_view, register_view
+from genre.views import genres as genres_view, genre as genre_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,6 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('registration/', register_view, name='registration'),
+    path('genres/', genres_view, name='genres'),
+    path('genre/<int:genre_id>/', genre_view, name='genre'),
 ]
