@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Edit Genre{% endblock %}
+
+{% block content %}
+  {% if user.is_librarian %}
+    <form method="POST" action="{% url 'edit_genre' genre.id %}">
+      {% csrf_token %}
+      <p><input type="text" name="name" placeholder="Genre name" value="{{ genre.name }}" /></p>
+      <p><textarea name="description" placeholder="Genre description" rows="4">{{ genre.description }}</textarea></p>
+      <p><input type="submit" value="Save Changes" /></p>
+    </form>
+  {% endif %}
+{% endblock %}
