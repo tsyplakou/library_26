@@ -30,7 +30,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('registration/', register_view, name='registration'),
-    path('', include('book.urls'))
+    path('', include('book.urls')),
     path('genres/', genres_view, name='genres'),
     path('genre/<int:genre_id>/', genre_view, name='genre'),
     path('add_genre/', add_genre, name='add_genre'),

@@ -11,7 +11,11 @@ def genres(request):
 def genre(request, genre_id):
     if request.method == 'GET':
         genre = Genre.objects.get(id=genre_id)
-        return render(request, 'genre.html', {'genre': genre})
+        return render(
+            request,
+            'genre.html',
+            {'genre': genre},
+        )
 
 
 def add_genre(request):

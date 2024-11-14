@@ -2,7 +2,10 @@
 
 <head>
     {% block title %}Exquisite Bookshelf with Centered Author Photos{% endblock %}
-    <style>
+</head>
+
+{% block content %}
+<style>
         /* Общий фон с мягким градиентом */
         body {
             font-family: 'Georgia', serif;
@@ -162,13 +165,9 @@
         }
 
     </style>
-</head>
-
-{block main_content}
     <div class="bookshelf">
-        {% for shelf in books|batch(7) %}
             <div class="shelf">
-                {% for book in shelf %}
+                {% for book in books %}
                     <div class="book">
                         <div class="text-container">
                             <strong>{{ book.title }}</strong><br>
@@ -180,6 +179,5 @@
                     </div>
                 {% endfor %}
             </div>
-        {% endfor %}
     </div>
 {% endblock %}
