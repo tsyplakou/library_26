@@ -12,3 +12,11 @@ class UserFactory(factory.django.DjangoModelFactory):
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
     password = factory.Faker('password', length=10)
+
+
+class LibrarianFactory(UserFactory):
+    role = User.Role.LIBRARIAN
+
+
+class ReaderFactory(UserFactory):
+    role = User.Role.READER
