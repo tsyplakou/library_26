@@ -9,5 +9,7 @@
       <p><textarea name="description" placeholder="Genre description" rows="4">{{ genre.description }}</textarea></p>
       <p><input type="submit" value="Save Changes" /></p>
     </form>
+  {% else %}
+    <p>You do not have permission to edit genres.</p>
   {% endif %}
 {% endblock %}
