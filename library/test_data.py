@@ -46,3 +46,21 @@ books_data = [
     {"title": "Anna Karenina", "release_date": "1877-01-01", "genre": "Historical", "author": "Leo Tolstoy"},
     {"title": "The Divine Comedy", "release_date": "1320-01-01", "genre": "Philosophy", "author": "Dante Alighieri"},
 ]
+
+translators_data = [
+    {"first_name": "Constance", "last_name": "Garnett", "birth_year": 1861, "death_year": 1946},
+    {"first_name": "Pevear", "last_name": "Richard", "birth_year": 1943, "death_year": None},
+    {"first_name": "Larissa", "last_name": "Volokhonsky", "birth_year": 1945, "death_year": None},
+    {"first_name": "Michael", "last_name": "Glenny", "birth_year": 1927, "death_year": 1990},
+    {"first_name": "Louise", "last_name": "Maude", "birth_year": 1855, "death_year": 1939},
+    {"first_name": "Aylmer", "last_name": "Maude", "birth_year": 1858, "death_year": 1938},
+    {"first_name": "David", "last_name": "McDuff", "birth_year": 1945, "death_year": None},
+    {"first_name": "Alan", "last_name": "Myers", "birth_year": 1933, "death_year": 2010},
+    {"first_name": "Ann", "last_name": "Dunnigan", "birth_year": 1910, "death_year": 1997},
+    {"first_name": "Rosamund", "last_name": "Bartlett", "birth_year": 1961, "death_year": None},
+    {"first_name": "Anthony", "last_name": "Briggs", "birth_year": 1932, "death_year": None},
+    {"first_name": "Peter", "last_name": "Carson", "birth_year": 1938, "death_year": 2013},
+    {"first_name": "Andrew", "last_name": "Bromfield", "birth_year": 1948, "death_year": None},
+    {"first_name": "Marian", "last_name": "Schwartz", "birth_year": 1954, "death_year": None},
+    {"first_name": "Richard", "last_name": "Freeborn", "birth_year": 1926, "death_year": 2010},
+]
