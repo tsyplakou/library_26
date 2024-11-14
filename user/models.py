@@ -15,6 +15,11 @@ class User(AbstractUser):
         default=Role.READER,
     )
 
+    def save(self, *args, **kwargs):
+        if self.is_superuser:
+            self.role = self.Role.ADMIN
+        super().save(*args, **kwargs)
+
     @property
     def is_reader(self):
         return self.role == self.Role.READER
