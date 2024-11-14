@@ -41,7 +41,7 @@ books_data = [
     {"title": "To Kill a Mockingbird", "release_date": "1960-07-11", "genre": "Fiction", "author": "Harper Lee"},
     {"title": "Crime and Punishment", "release_date": "1866-01-01", "genre": "Mystery", "author": "Fyodor Dostoevsky"},
     {"title": "A Brief History of Time", "release_date": "1988-01-01", "genre": "Non-Fiction", "author": "Stephen Hawking"},
-    {"title": "The Art of War", "release_date": "500 BC", "genre": "Philosophy", "author": "Sun Tzu"},
+    {"title": "The Art of War", "release_date": "1900-01-01", "genre": "Philosophy", "author": "Sun Tzu"},
     {"title": "The Hobbit", "release_date": "1937-09-21", "genre": "Fantasy", "author": "J.R.R. Tolkien"},
     {"title": "Anna Karenina", "release_date": "1877-01-01", "genre": "Historical", "author": "Leo Tolstoy"},
     {"title": "The Divine Comedy", "release_date": "1320-01-01", "genre": "Philosophy", "author": "Dante Alighieri"},

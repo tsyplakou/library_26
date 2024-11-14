@@ -22,7 +22,7 @@ class BookAdmin(admin.ModelAdmin):
     filter_horizontal = ('translators',)
 
     def status(self, obj):
-        if obj.borrowers.filter(return_date__isnull=True).exists():
+        if obj.borrowings.filter(return_date__isnull=True).exists():
             return 'Borrowed'
         else:
             return 'On shelf'
