@@ -6,5 +6,5 @@ from .models import Genre
 class GenreAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
     search_fields = ('name', 'description')
-    list_filter = ('name', 'description')
+    list_filter = ('name',)
 
