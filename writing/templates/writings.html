@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Writings{% endblock %}
+
+{% block content %}
+  {% if user.is_librarian %}
+      <a href="{% url 'writing_create' %}">Create Writing</a>
+  {% endif %}
+  <ul>
+    {% for writing in writings %}
+      <li>{{ writing }}</li>
+      {% if user.is_librarian %}
+        <a href="{% url 'writing_edit' writing.pk %}">Edit</a>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Genre{% endblock %}
+
+{% block content %}
+  <h1>{{ writing }}</h1>
+  {% if user.is_librarian %}
+    <a href="{% url 'writing_edit' writing.pk %}">Edit Genre</a>
+  {% endif %}
+{% endblock %}

@@ -14,14 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from user.views import login_view, logout_view, register_view
 from genre.views import (
     genres as genres_view,
     genre as genre_view,
     add_genre, edit_genre
+)
+from user.views import login_view, logout_view, register_view
+from writing.views import (
+    WritingListView,
+    WritingDetailView,
+    WritingUpdateView,
+    WritingCreateView,
 )
 
 urlpatterns = [
@@ -35,4 +43,9 @@ urlpatterns = [
     path('genre/<int:genre_id>/', genre_view, name='genre'),
     path('add_genre/', add_genre, name='add_genre'),
     path('edit_genre/<int:genre_id>/', edit_genre, name='edit_genre'),
-]
+    # writing app
+    path('writing/', WritingListView.as_view(), name='writings'),
+    path('writing/<int:pk>/', WritingDetailView.as_view(), name='writing'),
+    path('writing/create/', WritingCreateView.as_view(), name='writing_create'),
+    path('writing/<int:pk>/edit/', WritingUpdateView.as_view(), name='writing_edit'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Edit writing{% endblock %}
+
+{% block content %}
+  {% if user.is_librarian %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+  {% else %}
+    <p>You do not have permission to edit writings.</p>
+  {% endif %}
+{% endblock %}
