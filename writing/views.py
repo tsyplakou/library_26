@@ -8,13 +8,18 @@ class WritingListView(ListView):
     model = Writing
     template_name = "writings.html"
     context_object_name = "writings"
+    paginate_by = 2
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['total_writings'] = Writing.objects.count()
+        return context
 
 
 class WritingDetailView(DetailView):
     model = Writing
     template_name = "writing.html"
     context_object_name = "writing"
-    success_url = reverse_lazy('writings')
 
 
 class WritingUpdateView(UpdateView):
