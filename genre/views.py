@@ -1,10 +1,24 @@
 from django.shortcuts import redirect, render
 from .models import Genre
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 
 
-def genres(request):
-    if request.method == 'GET':
+def get_genres_cached():
+    genres = cache.get('genres')
+
+    if not genres:
         genres = Genre.objects.all()
+        cache.set('genres', genres, timeout=4)
+
+    return genres
+
+
+# @cache_page(timeout=7)  # 7 secs
+def genres(request):
+    print('not cached')
+    if request.method == 'GET':
+        genres = get_genres_cached()
         return render(request, 'genres.html', {'genres': genres})
 
 

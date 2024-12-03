@@ -142,3 +142,31 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.User'
+
+
+CACHES = {
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    #     'LOCATION': 'unique-snowflake',
+    # },
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
+    },
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache', # requires PyMemcached
+    #     'LOCATION': '127.0.0.1:11211',
+    # },
+    # "default": {
+    #     "BACKEND": "django.core.cache.backends.redis.RedisCache",
+    #     "KEY_PREFIX": "your_app_name:",
+    #     "LOCATION": f"redis://127.0.0.1:6379",
+    # },
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.db.DatabaseCache', #python manage.py createcachetable
+    #     'LOCATION': 'my_cache_table',
+    # },
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.dummy.DummyCache', # off caching
+    # },
+}
